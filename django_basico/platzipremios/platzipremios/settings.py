@@ -14,6 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+# Define las ubicaciones donde se está cprriendo el proyecto.
 
 
 # Quick-start development settings - unsuitable for production
@@ -21,22 +22,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-ir%ms7^6xmh5vh#2$!-+z=9dd!7jrk)=2^l5%#pjg#9byf8eql'
+# Es usado para el hashing de contraseñas y las sesiones que se almacenan en la BD.
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# Define si el proyecto está en desarrollo para realizar debugging.
 
 ALLOWED_HOSTS = []
-
+# Define que hosts están permitidos para que interactúen en nuestro proyecto.
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.admin', # App de administrador
+    'django.contrib.auth', # App de autenticacionn
+    'django.contrib.contenttypes', # App de conexión a la BD
+    'django.contrib.sessions', # App de sesiones
+    'django.contrib.messages', # App de mensajes
+    'django.contrib.staticfiles', # App de archivos estaticos
 ]
 
 MIDDLEWARE = [
@@ -50,6 +53,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'platzipremios.urls'
+#  Ubicación principal de urls
 
 TEMPLATES = [
     {
@@ -68,6 +72,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'platzipremios.wsgi.application'
+# Ubicación principal del deployment
 
 
 # Database
@@ -98,7 +103,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+# Validadores de contraseñas. Si se está usando la app de autentificación, que la cotraseña pase por las validaciones definidas:
+#     - Los valores de la contraseña no sean similares a los valores del usuario.
+#     - Que tengan la mínima longitud.
+#     - Validar la contraseña con un diccionario de contraseñas comunes.
+#     - Validar la contraseña no sea numérica.
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
